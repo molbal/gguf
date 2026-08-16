@@ -1,55 +1,54 @@
 ---
-title: About gguf
-description: Information and documentation for the gguf project.
+title: Home
+description: GGUF quantization and open-source diffusion tooling by molbal.
 layout: home
 hero:
-  name: gguf
-  text: Project information and documentation
-  tagline: Keep the project context, guidance, and source links in one place.
+  name: molbal
+  text: GGUF Quantization and Diffusion Tooling
+  tagline: Run large diffusion transformers on consumer GPUs with quantized weights.
   actions:
     - theme: brand
-      text: View the repository
-      link: https://github.com/molbal/gguf
+      text: Get Started
+      link: /getting-started/
     - theme: alt
-      text: Get started
-      link: '#getting-started'
+      text: Browse Models
+      link: /models/
+    - theme: alt
+      text: ComfyUI Nodes
+      link: https://registry.comfy.org/publishers/molbal/nodes/comfyui-gguf-reboot
 features:
-  - title: Project overview
-    details: Understand the purpose of gguf and find the latest project context.
-  - title: Practical guidance
-    details: Keep setup, usage, and contribution instructions easy to discover.
-  - title: Open source
-    details: Review the source, report issues, and contribute on GitHub.
+  - title: Consumer GPU Support
+    details: Quantized tensor storage and execution reduce VRAM use so large diffusion transformers run on a single GPU.
+  - title: Open Interoperability
+    details: Compatible with city96, Unsloth, and other GGUF ecosystem providers. Workflows stay portable between runtimes.
+  - title: Model Registry
+    details: GGUF quants for MiniMax H3, LTX 2.5, Krea 2, Ideogram 4, and MiniMax Music 3, with hardware guidance.
+  - title: Workflow Library
+    details: ComfyUI node trees for text to image, image editing, video, multimodal to video, and audio generation.
 ---
 
-## What is here?
+## What is here
 
-This site is the home for project information, usage guidance, and links to the source code. As the project grows, detailed documentation can be added as pages alongside this overview.
+This site documents molbal's GGUF quantization work and diffusion tooling.
 
-## Getting started
+- [Getting started](/getting-started/): what GGUF is and how it applies to diffusion models.
+- [Ecosystem and tooling](/ecosystem/): ComfyUI nodes, third-party runtimes, and quant formats.
+- [Models registry](/models/): each repository with Hugging Face links, hardware requirements, and format availability.
+- [Workflows](/workflows/): ComfyUI node trees for image, video, and audio generation.
+- [Community](/community/): model requests, issue reports, and social profiles.
 
-The source repository is the best place to find the current project files and development instructions:
+## How to run these models
 
-```bash
-git clone https://github.com/molbal/gguf.git
-cd gguf
-```
+Modern diffusion pipelines use diffusion transformers (DiTs). A heavy text encoder (T5 XXL or Qwen) runs alongside a UNet or transformer backbone. Running both at full precision exceeds most single-GPU budgets.
 
-For changes to this information page, edit the Markdown files in `docs/` and run the local development server:
+GGUF quantization compresses weights so both models fit in VRAM. Use ComfyUI with the [comfyui-gguf-reboot](https://registry.comfy.org/publishers/molbal/nodes/comfyui-gguf-reboot) node pack. The loader nodes give the best performance.
 
-```bash
-npm install
-npm run docs:dev
-```
-
-::: tip
-The published site is built automatically and deployed to GitHub Pages whenever changes reach the `main` branch.
+::: tip New to GGUF?
+Start with [Getting Started](/getting-started/) for the background.
 :::
 
-## Contributing
+## Quick links
 
-Bug reports, documentation improvements, and feature contributions are welcome. Open an issue or pull request in the [gguf repository](https://github.com/molbal/gguf).
-
-## License
-
-See the repository for the current license and contribution terms.
+- [comfyui-gguf-reboot](https://registry.comfy.org/publishers/molbal/nodes/comfyui-gguf-reboot)
+- [github.com/molbal/gguf](https://github.com/molbal/gguf)
+- [Quant Formats](/ecosystem/quant-formats)

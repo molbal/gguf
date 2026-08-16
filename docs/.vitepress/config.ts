@@ -5,34 +5,86 @@ const base = process.env.GITHUB_ACTIONS ? '/gguf/' : '/'
 export default defineConfig({
   base,
   lang: 'en-US',
-  title: 'gguf',
-  titleTemplate: ':title | gguf',
-  description: 'Information and documentation for the gguf project.',
+  title: 'molbal',
+  titleTemplate: ':title | molbal GGUF Quantization and Diffusion Tooling',
+  description:
+    'GGUF quantization, open-source diffusion tooling, model registries, and ComfyUI workflows by molbal.',
   lastUpdated: true,
   themeConfig: {
-    siteTitle: 'gguf',
+    siteTitle: 'molbal',
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Repository', link: 'https://github.com/molbal/gguf' }
+      { text: 'Getting Started', link: '/getting-started/' },
+      { text: 'Ecosystem', link: '/ecosystem/' },
+      { text: 'Models', link: '/models/' },
+      { text: 'Workflows', link: '/workflows/' },
+      { text: 'Community', link: '/community/' },
+      { text: 'GitHub', link: 'https://github.com/molbal/gguf' }
     ],
     sidebar: [
       {
-        text: 'Overview',
-        items: [{ text: 'About gguf', link: '/' }]
+        text: 'Getting Started',
+        collapsed: false,
+        items: [{ text: 'Introduction', link: '/getting-started/' }]
+      },
+      {
+        text: 'Ecosystem and Tooling',
+        collapsed: false,
+        items: [
+          { text: 'Overview', link: '/ecosystem/' },
+          { text: 'Quant Formats', link: '/ecosystem/quant-formats' }
+        ]
+      },
+      {
+        text: 'Models Registry',
+        collapsed: false,
+        items: [
+          { text: 'Overview', link: '/models/' },
+          { text: 'MiniMax Music 3', link: '/models/minimax-music3' },
+          { text: 'MiniMax H3 Turbo', link: '/models/minimax-h3-turbo' },
+          { text: 'LTX 2.5', link: '/models/ltx-2-5' },
+          { text: 'MiniMax H3', link: '/models/minimax-h3' },
+          { text: 'Krea 2', link: '/models/krea2' },
+          { text: 'Ideogram 4', link: '/models/ideogram-4' }
+        ]
+      },
+      {
+        text: 'Workflows',
+        collapsed: false,
+        items: [
+          { text: 'Overview', link: '/workflows/' },
+          { text: 'Text to Image', link: '/workflows/text-to-image' },
+          { text: 'Image Edit', link: '/workflows/image-edit' },
+          { text: 'Text to Video', link: '/workflows/text-to-video' },
+          { text: 'Multimodal to Video', link: '/workflows/multimodal-to-video' },
+          { text: 'Text to Sound', link: '/workflows/text-to-sound' }
+        ]
+      },
+      {
+        text: 'Community',
+        collapsed: false,
+        items: [{ text: 'Community and Socials', link: '/community/' }]
       }
     ],
     search: {
       provider: 'local'
     },
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/molbal/gguf' }
+      { icon: 'github', link: 'https://github.com/molbal/gguf' },
+      {
+        icon: {
+          svg: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>'
+        },
+        link: 'https://www.linkedin.com/in/balint-molnar/',
+        ariaLabel: 'LinkedIn'
+      }
     ],
     editLink: {
       pattern: 'https://github.com/molbal/gguf/edit/main/docs/:path',
       text: 'Edit this page on GitHub'
     },
     footer: {
-      message: 'Built with VitePress.',
+      message: 'GGUF quantization and open-source diffusion tooling.',
       copyright: 'Copyright © 2026 molbal'
     }
   }
