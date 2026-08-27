@@ -8,7 +8,11 @@ outline: [2, 3]
 
 Krea 2 is a 12B diffusion transformer for high-fidelity image generation and design. It uses layerwise and refiner text-fusion blocks and is not based on Flux. This repository ships GGUF quants of the Raw and Turbo checkpoints.
 
-- Hugging Face: [molbal/krea2-gguf](https://huggingface.co/molbal/krea2-gguf)
+<DownloadCard
+  href="https://huggingface.co/molbal/krea2-gguf"
+  label="krea2-gguf on Hugging Face"
+  meta="Hugging Face repository"
+/>
 
 ## Examples
 

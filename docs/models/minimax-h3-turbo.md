@@ -8,8 +8,11 @@ outline: [2, 3]
 
 MiniMax H3 Turbo is a distilled FL2VA variant that runs in 4 steps at 768p. It generates video with native stereo audio from text, one frame, or first and last frames. The GGUF files hold the base model plus distilled weights merged into one checkpoint.
 
-- Hugging Face: [molbal/MiniMax-H3-Turbo-GGUF](https://huggingface.co/molbal/MiniMax-H3-Turbo-GGUF)
-
+<DownloadCard
+  href="https://huggingface.co/molbal/MiniMax-H3-Turbo-GGUF"
+  label="MiniMax-H3-Turbo-GGUF on Hugging Face"
+  meta="Hugging Face repository"
+/>
 ## Examples
 
 Example prompts this model handles well:
@@ -65,5 +68,14 @@ Place these files in the ComfyUI model folders before running a workflow.
 
 Import these JSON files into ComfyUI.
 
-- [Text-to-Video workflow](../workflows/files/minimax_h3_t2v-turbo-gguf.json)
-- [Image-to-Video workflow](../workflows/files/minimax_h3_i2v-turbo-gguf.json)
+<DownloadCard
+  href="../workflows/files/minimax_h3_t2v-turbo-gguf.json"
+  label="Text-to-Video workflow"
+  meta="JSON file"
+/>
+
+<DownloadCard
+  href="../workflows/files/minimax_h3_i2v-turbo-gguf.json"
+  label="Image-to-Video workflow"
+  meta="JSON file"
+/>

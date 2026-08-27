@@ -11,6 +11,7 @@ export default defineConfig({
     'GGUF quantization, open-source diffusion tooling, model registries, and ComfyUI workflows by molbal.',
   lastUpdated: true,
     head: [
+      ['link', { rel: 'icon', type: 'image/png', href: base + 'gguf-diffusion-icon.png' }],
       [
         'script',
         { async: '', src: 'https://www.googletagmanager.com/gtag/js?id=G-6RHBBPS3J5' }
@@ -25,15 +26,13 @@ export default defineConfig({
       ]
     ],
     themeConfig: {
-    siteTitle: 'molbal',
+    siteTitle: 'GGUF Diffusion',
+    logo: '/gguf-diffusion-icon.png',
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Getting Started', link: '/getting-started/' },
-      { text: 'Ecosystem', link: '/ecosystem/' },
-      { text: 'Models', link: '/models/' },
-      { text: 'Workflows', link: '/workflows/' },
-      { text: 'Community', link: '/community/' },
-      { text: 'GitHub', link: 'https://github.com/molbal/gguf' }
+      { text: 'Docs', link: '/getting-started/' },
+      { text: 'Custom nodes', link: 'https://github.com/molbal/ComfyUI-GGUF' },
+      { text: 'Models', link: '/models/' }
     ],
     sidebar: [
       {

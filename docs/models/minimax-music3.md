@@ -71,11 +71,15 @@ Place these files in the ComfyUI model folders before running a workflow.
 
 | Component | File | Folder |
 | --- | --- | --- |
-| Diffusion transformer | minimax_music3_dit_*.gguf | models/diffusion_models/ or models/unet/ |
-| Text encoder | minimax_music3_text_encoder_pruned_*.gguf | models/text_encoders/ or models/clip/ |
+| Diffusion transformer | `minimax_music3_dit_*.gguf` | `models/diffusion_models/` or `models/unet/` |
+| Text encoder | `minimax_music3_text_encoder_pruned_*.gguf` | `models/text_encoders/` or `models/clip/` |
 
 ### Workflow downloads
 
 Import this JSON file into ComfyUI.
 
-- [Music generation workflow](../workflows/files/audio_minimax_music_3-gguf.json)
+<DownloadCard
+href="../workflows/files/audio_minimax_music_3-gguf.json"
+label="Music generation ComfyUI workflow"
+meta="JSON file"
+/>

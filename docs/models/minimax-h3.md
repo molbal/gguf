@@ -8,7 +8,11 @@ outline: [2, 3]
 
 MiniMax H3 is an omni-modal generative system. It reads text, images, video, and audio and generates video with native stereo audio at up to 2K and 15 seconds. This repository ships GGUF quants of the FL2VA and Ref2VA variants.
 
-- Hugging Face: [molbal/MiniMax-H3-GGUF](https://huggingface.co/molbal/MiniMax-H3-GGUF)
+<DownloadCard
+  href="https://huggingface.co/molbal/MiniMax-H3-GGUF"
+  label="MiniMax-H3-GGUF on Hugging Face"
+  meta="Hugging Face repository"
+/>
 
 ## Examples
 
@@ -79,6 +83,20 @@ Place these files in the ComfyUI model folders before running a workflow.
 
 Import these JSON files into ComfyUI.
 
-- [Text-to-Video workflow](../workflows/files/minimax_h3_t2v-gguf.json)
-- [Image-to-Video workflow](../workflows/files/minimax_h3_i2v-gguf.json)
-- [Reference-to-Video workflow](../workflows/files/minimax_h3_ref2v-gguf.json)
+<DownloadCard
+  href="../workflows/files/minimax_h3_t2v-gguf.json"
+  label="Text-to-Video workflow"
+  meta="JSON file"
+/>
+
+<DownloadCard
+  href="../workflows/files/minimax_h3_i2v-gguf.json"
+  label="Image-to-Video workflow"
+  meta="JSON file"
+/>
+
+<DownloadCard
+  href="../workflows/files/minimax_h3_ref2v-gguf.json"
+  label="Reference-to-Video workflow"
+  meta="JSON file"
+/>

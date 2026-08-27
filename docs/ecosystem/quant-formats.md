@@ -32,7 +32,7 @@ Q8_CR stores weights as INT8 and applies Convolutional Rotation (ConvRot) during
 
 ConvRot rotates weight tensors before quantization so that sensitive convolution-like structure survives the low-bit representation. This keeps attention projections, normalization layers, and rotational structures precise.
 
-Q8_CR gives near-Q8_0 quality on sensitive layers while keeping the memory use of an INT8 build.
+Q8_CR stores most weighs in INT8 ConvRot therefore it is both high quality, but with [higher performance](https://www.google.com/search?client=firefox-b-d&q=Ampere+gpu+int8+acceleration).
 
 
 ## Choosing a format
@@ -43,4 +43,4 @@ Q8_CR gives near-Q8_0 quality on sensitive layers while keeping the memory use o
 | Tight VRAM budget                       | Q4                 |
 | Float dynamic range at 8-bit cost       | FP8                |
 
-Not every format is available for every model. See the [model pages](/models/) for exact availability.
+Not every format is available for every model. See the [model pages](/models/) for exact availability. If you need some format, which is not available, 

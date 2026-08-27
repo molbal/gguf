@@ -8,7 +8,11 @@ outline: [2, 3]
 
 Ideogram 4 is a diffusion transformer built for text rendering and graphic design. It ships two diffusion components: the main transformer and an unconditional transformer used by CFG workflows. This repository publishes GGUF quants of both.
 
-- Hugging Face: [molbal/ideogram-4-gguf](https://huggingface.co/molbal/ideogram-4-gguf)
+<DownloadCard
+  href="https://huggingface.co/molbal/ideogram-4-gguf"
+  label="ideogram-4-gguf on Hugging Face"
+  meta="Hugging Face repository"
+/>
 
 ## Examples
 

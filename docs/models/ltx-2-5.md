@@ -8,7 +8,11 @@ outline: [2, 3]
 
 LTX 2.5 is an open-weights video generation model from Lightricks. This repository ships GGUF quants of the 22B distilled transformer. It generates video with synchronized audio from text, a single frame, or first and last frames.
 
-- Hugging Face: [molbal/LTX-2.5-GGUF](https://huggingface.co/molbal/LTX-2.5-GGUF)
+<DownloadCard
+  href="https://huggingface.co/molbal/LTX-2.5-GGUF"
+  label="LTX-2.5-GGUF on Hugging Face"
+  meta="Hugging Face repository"
+/>
 
 ## Examples
 
@@ -63,6 +67,20 @@ Place these files in the ComfyUI model folders before running a workflow.
 
 Import these JSON files into ComfyUI.
 
-- [Text-to-Video workflow](../workflows/files/video_ltx2_5_t2v-gguf.json)
-- [Image-to-Video workflow](../workflows/files/video_ltx2_5_i2v-gguf.json)
-- [First and Last Frame to Video workflow](../workflows/files/video_ltx2_5_flf2v-gguf.json)
+<DownloadCard
+  href="../workflows/files/video_ltx2_5_t2v-gguf.json"
+  label="Text-to-Video workflow"
+  meta="JSON file"
+/>
+
+<DownloadCard
+  href="../workflows/files/video_ltx2_5_i2v-gguf.json"
+  label="Image-to-Video workflow"
+  meta="JSON file"
+/>
+
+<DownloadCard
+  href="../workflows/files/video_ltx2_5_flf2v-gguf.json"
+  label="First and Last Frame to Video workflow"
+  meta="JSON file"
+/>
