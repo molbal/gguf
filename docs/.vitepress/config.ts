@@ -10,7 +10,21 @@ export default defineConfig({
   description:
     'GGUF quantization, open-source diffusion tooling, model registries, and ComfyUI workflows by molbal.',
   lastUpdated: true,
-  themeConfig: {
+    head: [
+      [
+        'script',
+        { async: '', src: 'https://www.googletagmanager.com/gtag/js?id=G-6RHBBPS3J5' }
+      ],
+      [
+        'script',
+        {},
+        `window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6RHBBPS3J5');`
+      ]
+    ],
+    themeConfig: {
     siteTitle: 'molbal',
     nav: [
       { text: 'Home', link: '/' },
@@ -32,7 +46,8 @@ export default defineConfig({
         collapsed: false,
         items: [
           { text: 'Overview', link: '/ecosystem/' },
-          { text: 'Quant Formats', link: '/ecosystem/quant-formats' }
+          { text: 'Quant Formats', link: '/ecosystem/quant-formats' },
+          { text: 'Quantizing Models', link: '/ecosystem/quantizing-models' }
         ]
       },
       {

@@ -34,26 +34,13 @@ ConvRot rotates weight tensors before quantization so that sensitive convolution
 
 Q8_CR gives near-Q8_0 quality on sensitive layers while keeping the memory use of an INT8 build.
 
-### U16G
-
-U16G is a mixed-precision build for 16GB GPUs.
-
-- Precision-critical layers use INT8.
-- The rest of the weights use Q4_0.
-
-A single 16GB card cannot hold a full FP16 diffusion pipeline plus its text encoder. U16G places INT8 on the layers that drive quality and Q4_0 on the rest, so the whole model fits without offloading. Fidelity is slightly lower than Q8_0, but the model runs where it otherwise would not.
-
-::: warning U16G vs Q4_K_M
-Both target limited memory. Use U16G when sensitive layers need higher precision. Use Q4_K_M for a simpler 4-bit baseline.
-:::
 
 ## Choosing a format
 
-| Situation | Recommended format |
-| --- | --- |
-| Maximum quality, ample VRAM | Q8_0, Q8_CR, or BF16 |
-| 16GB single GPU, full pipeline must fit | U16G |
-| Tight VRAM budget | Q4_K_M or Q4_0 |
-| Float dynamic range at 8-bit cost | FP8 |
+| Situation                               | Recommended format |
+|-----------------------------------------|--------------------|
+| Maximum quality, ample VRAM             | Q8 or BF16         |
+| Tight VRAM budget                       | Q4                 |
+| Float dynamic range at 8-bit cost       | FP8                |
 
 Not every format is available for every model. See the [model pages](/models/) for exact availability.

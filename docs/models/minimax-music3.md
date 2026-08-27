@@ -8,7 +8,11 @@ outline: [2, 3]
 
 MiniMax Music 3 generates complete songs up to 5 minutes long at 32 kHz stereo. It uses a 2.4B flow-matching diffusion transformer plus a text and language model encoder. This repository ships GGUF quants of both components.
 
-- Hugging Face: [molbal/Minimax-Music3-GGUF](https://huggingface.co/molbal/Minimax-Music3-GGUF)
+<DownloadCard
+  href="https://huggingface.co/molbal/Minimax-Music3-GGUF"
+  label="MiniMax-Music3-GGUF on Hugging Face"
+  meta="Hugging Face repository"
+/>
 
 ## Examples
 

@@ -42,6 +42,10 @@ Unsloth Studio and Unsloth's dynamic quantization engines produce and execute GG
 | Unsloth Studio | Quantization and GGUF-compatible weights |
 | city96 and GGML-family tooling | Cross-compatible providers |
 
+## Making your own quants
+
+You do not have to wait for a release. The node pack includes a converter that turns existing safetensors checkpoints into GGUF files. See [Quantizing Models](/ecosystem/quantizing-models) for the ComfyUI node, the command line tool, and the local conversion dashboard.
+
 ::: tip Where to start
 Use ComfyUI with [comfyui-gguf-reboot](https://registry.comfy.org/publishers/molbal/nodes/comfyui-gguf-reboot). Then read [Quant Formats](/ecosystem/quant-formats) to pick a build for your GPU.
 :::
@@ -49,4 +53,5 @@ Use ComfyUI with [comfyui-gguf-reboot](https://registry.comfy.org/publishers/mol
 ## Next steps
 
 - [Quant Formats](/ecosystem/quant-formats)
+- [Quantizing Models](/ecosystem/quantizing-models)
 - [Models Registry](/models/)
