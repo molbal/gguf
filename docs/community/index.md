@@ -4,23 +4,43 @@ description: Model requests, issue reports, and social profiles for molbal.
 outline: [2, 3]
 ---
 
-# Community
+# Community and Support
 
-The hub for model requests, bug reports, and staying connected with molbal's work.
+All my work here is open source contributions, and 
 
-## Model requests and issues
+## Requests for supporting new model types
 
-The [gguf repository](https://github.com/molbal/gguf) is the central place to interact with the project.
+You may request a new fine-tune or model conversion in a GitHub pull request in the repository of the loader nodes.
 
-- Request a new model quantization by opening an issue.
-- Report bugs for broken quants, loader problems, or workflow errors.
-- Submit pull requests for docs, workflows, and tooling improvements.
+<BigExternalLink
+href="https://github.com/molbal/ComfyUI-GGUF/issues/new?template=request-model-support.md"
+label="Request new model support"
+meta="External link to GitHub"
+/>
 
-[github.com/molbal/gguf](https://github.com/molbal/gguf)
+## Conversions of base models
 
-::: tip What to include in a model request
-Link the source model, note your target GPU and VRAM, and list the formats you want. See [Quant Formats](/ecosystem/quant-formats).
-:::
+I provide GGUF conversions of base models. I upload them to Hugging Face and CivitAI.
+
+
+<BigExternalLink
+href="https://huggingface.co/molbal/models?search=gguf"
+label="Hugging Face repositories"
+meta="External link to Hugging Face"
+/>
+
+
+## Conversions of community fine-tunes
+
+Often, GGUF conversions are requested of specific checkpoints. These are grouped in a CivitAI collection. These are like private fine-tunes such as Kroma or Kreamania.
+
+<BigExternalLink
+href="https://civitai.com/collections/17272716"
+label="Krea2 GGUF conversions collection"
+meta="External link to CivitAI"
+/>
+
+
 
 ## Profiles
 
