@@ -1,4 +1,21 @@
 import { defineConfig } from 'vitepress'
+import { cpSync, mkdirSync } from 'node:fs'
+import { fileURLToPath, URL } from 'node:url'
+
+const rootAssetsDir = fileURLToPath(new URL('../../assets/', import.meta.url))
+const publicAssetsDir = fileURLToPath(new URL('../public/assets/', import.meta.url))
+
+const syncRootAssets = (): void => {
+  mkdirSync(publicAssetsDir, { recursive: true })
+  cpSync(rootAssetsDir, publicAssetsDir, { recursive: true })
+}
+
+const syncRootAssetsPlugin = {
+  name: 'sync-root-assets',
+  buildStart() {
+    syncRootAssets()
+  }
+}
 
 const base = process.env.GITHUB_ACTIONS ? '/gguf/' : '/'
 
@@ -10,6 +27,9 @@ export default defineConfig({
   description:
     'GGUF quantization, open-source diffusion tooling, model registries, and ComfyUI workflows by molbal.',
   lastUpdated: true,
+  vite: {
+    plugins: [syncRootAssetsPlugin]
+  },
     head: [
       ['link', { rel: 'icon', type: 'image/png', href: base + 'gguf-diffusion-icon.png' }],
       [
