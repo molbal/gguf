@@ -14,7 +14,7 @@ You may request a new fine-tune or model conversion in a GitHub pull request in 
 
 <BigExternalLink
 href="https://github.com/molbal/ComfyUI-GGUF/issues/new?template=request-model-support.md"
-label="Request new model support"
+label="Request supporting a new model"
 meta="External link to GitHub"
 />
 

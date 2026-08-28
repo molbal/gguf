@@ -65,6 +65,8 @@ export default defineConfig({
         collapsed: false,
         items: [
           { text: 'Overview', link: '/ecosystem/' },
+          { text: 'Load GGUF models in ComfyUI', link: '/ecosystem/comfyui-gguf' },
+          { text: 'Using the custom nodes', link: '/ecosystem/using-the-custom-nodes' },
           { text: 'Quant Formats', link: '/ecosystem/quant-formats' },
           { text: 'Quantizing Models', link: '/ecosystem/quantizing-models' }
         ]

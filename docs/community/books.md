@@ -10,11 +10,10 @@ outline: [2, 3]
 This page is an advertisement for book(s) written by the maintainer of this site.
 :::
 
-## Beyond the Public Cloud
+## Beyond the Public Cloud: Architecting Private, Secure, and Sovereign AI for the European Enterprise
+Released on April 10, 2026
 
-![Cover image](/assets/beyond-the-public-cloud-cover.jpg){height=540px}
-
-*Architecting Private, Secure, and Sovereign AI for the European Enterprise*
+![Cover image](/assets/beyond-the-public-cloud-cover.jpg){width=360px height=540px}
 
 The public cloud promised simplicity. It delivered convenience, then invoices, then a compliance officer asking questions nobody had prepared answers for.
 

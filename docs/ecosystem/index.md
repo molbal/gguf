@@ -10,12 +10,12 @@ molbal's models run anywhere GGUF is understood. This page lists the ComfyUI nod
 
 ## ComfyUI
 
-Use ComfyUI with the [molbal/comfyui-gguf-reboot](https://registry.comfy.org/publishers/molbal/nodes/comfyui-gguf-reboot) node pack.
+Use ComfyUI with the [comfyui-gguf-reboot](https://registry.comfy.org/publishers/molbal/nodes/comfyui-gguf-reboot) node pack. The loader nodes give the best performance.
 
 - Comfy Registry: [registry.comfy.org/publishers/molbal/nodes/comfyui-gguf-reboot](https://registry.comfy.org/publishers/molbal/nodes/comfyui-gguf-reboot)
 - The node pack provides GGUF loader nodes for diffusion transformers, text encoders, and VAEs.
 
-The loader nodes accept GGUF files directly. Load the model with the GGUF loader instead of the standard checkpoint loader for the best performance.
+The loader nodes accept GGUF files directly. Load the model with the GGUF loader instead of the standard checkpoint loader for the best performance. See [Load GGUF models in ComfyUI](/ecosystem/comfyui-gguf) for install instructions.
 
 ## Interoperability
 
@@ -54,4 +54,5 @@ Use ComfyUI with [comfyui-gguf-reboot](https://registry.comfy.org/publishers/mol
 
 - [Quant Formats](/ecosystem/quant-formats)
 - [Quantizing Models](/ecosystem/quantizing-models)
+- [Load GGUF models in ComfyUI](/ecosystem/comfyui-gguf)
 - [Models Registry](/models/)
