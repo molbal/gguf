@@ -12,7 +12,7 @@ Text-to-image pipelines built on Ideogram 4 and Krea 2 GGUF quants.
 ## Models and formats
 
 The following models support Text-to-Image modalities:
-
+[krea2-gguf.json](../../../../../Downloads/krea2-gguf.json)
 | Model                                     | Strength                                         | Tradeoff                                              |
 |-------------------------------------------|--------------------------------------------------|-------------------------------------------------------|
 | [Ideogram 4](/models/ideogram-4)          | Excellent prompt following, great text rendering | Strict JSON prompt structure is cumbersome to follow. |

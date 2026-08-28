@@ -14,13 +14,14 @@ LTX 2.5 is an open-weights video generation model from Lightricks. This reposito
   meta="Hugging Face repository"
 />
 
-## Examples
+## Example output
 
-Example prompts this model handles well:
+<video controls width="100%">
+  <source src="https://image-b2.civitai.com/file/civitai-media-cache/6c197172-3e49-4978-a51b-334b3cc98c22/original" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
-- A close-up of an Arctic hunter on an ice floe, a polar bear in the distance, the camera pulling back slowly.
-- A drone shot over a river valley at sunrise, tilting down to reveal a village.
-- A cat jumping off a couch in slow motion, dust catching the light.
+Video from [CivitAI](https://civitai.red/user/aifromcivitai)
 
 ## Available Quantizations
 

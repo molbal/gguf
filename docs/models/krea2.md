@@ -14,13 +14,11 @@ Krea 2 is a 12B diffusion transformer for high-fidelity image generation and des
   meta="Hugging Face repository"
 />
 
-## Examples
+## Example output
 
-Example prompts this model handles well:
+![Example image](/assets/krea-example.jpg)
 
-- "A product shot of a ceramic coffee mug on a wooden table, soft window light, shallow depth of field."
-- "An editorial fashion portrait, bold red background, studio lighting, film grain."
-- "A minimalist logo concept for a coffee brand, flat vector style, warm palette."
+> **Prompt:** A seaside beach in the autumn from above. In the foreground there is a seagull flying. A text 'Krea2 GGUF'. Deep indigo and teal palette, minimalist surrealism, high-angle aerial perspective, atmospheric gradient, poignant isolation, liminal space
 
 ## Available Quantizations
 
@@ -66,3 +64,15 @@ Place these files in the ComfyUI model folders before running a workflow. You al
 | VAE | models/vae/ |
 
 Krea 2 has no workflow files in this repository. Use the ComfyUI template from the upstream Krea 2 release and swap in the GGUF loader node.
+
+
+### Workflow downloads
+
+Import these JSON files into ComfyUI.
+
+<DownloadCard
+href="../workflows/files/krea2-gguf.json"
+label="Text-to-Image workflow"
+meta="JSON file"
+/>
+

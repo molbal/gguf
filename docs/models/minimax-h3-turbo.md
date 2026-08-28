@@ -13,13 +13,14 @@ MiniMax H3 Turbo is a distilled FL2VA variant that runs in 4 steps at 768p. It g
   label="MiniMax-H3-Turbo-GGUF on Hugging Face"
   meta="Hugging Face repository"
 />
-## Examples
 
-Example prompts this model handles well:
 
-- A chef plating a dish in a busy restaurant kitchen, steam rising, quick cuts.
-- A drone shot flying over a coastal cliff at sunset, waves below.
-- A person typing at a desk at night, screen glow on their face, rain on the window.
+## Example output
+
+<video controls width="100%">
+  <source src="/assets/minimax-h3-turbo-example.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 ## Available Quantizations
 

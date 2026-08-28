@@ -14,15 +14,12 @@ MiniMax Music 3 generates complete songs up to 5 minutes long at 32 kHz stereo. 
   meta="Hugging Face repository"
 />
 
-## Examples
+## Example output 
+<video controls width="100%">
+  <source src="/assets/minimax-music3-example.mp3" type="audio/mpeg">
+  Your browser does not support the video tag.
+</video>
 
-Example prompts this model handles well:
-
-- Lyrics with section tags plus a description such as "indie folk pop, 98 BPM, G major, breathy female lead vocal with fingerpicked guitar."
-- "A lo-fi hip hop beat with warm Rhodes chords, a dusty boom-bap drum loop, and vinyl crackle."
-- "An orchestral trailer cue that builds from quiet strings to a full brass and percussion climax."
-
-The model reads two inputs: lyrics and a music description. Lyrics use uppercase section tags on their own lines, like `[Verse]`, `[Chorus]`, and `[Outro]`. The description can cover genre, tempo, key, vocals, and arrangement.
 
 ## Available Quantizations
 

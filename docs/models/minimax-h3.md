@@ -14,17 +14,16 @@ MiniMax H3 is an omni-modal generative system. It reads text, images, video, and
   meta="Hugging Face repository"
 />
 
-## Examples
+## Example output
 
-Example prompts this model handles well:
-
-- A woman walking through a rain-soaked market at night, neon signs reflecting in puddles.
-- A close-up of hands kneading dough, flour dust in the air, warm kitchen light.
-- A spaceship drifting past a ringed planet, slow camera push in.
+<video controls width="100%">
+  <source src="/assets/minimax-h3-example.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 ## Available Quantizations
 
-### FL2VA (pruned to FP8 first)
+### FL2VA
 
 | Quant | Size | File |
 | --- | --- | --- |
@@ -43,7 +42,9 @@ Example prompts this model handles well:
 | Q8_CR | 20.2 GB | [minimax-h3-ref2va-Q8_CR.gguf](https://huggingface.co/molbal/MiniMax-H3-GGUF/blob/main/minimax-h3-ref2va-Q8_CR.gguf) |
 | U16G | 15.0 GB | [minimax-h3-ref2va-U16G.gguf](https://huggingface.co/molbal/MiniMax-H3-GGUF/blob/main/minimax-h3-ref2va-U16G.gguf) |
 
-U16G targets 16GB cards. It puts INT8 on the layers that drive quality and Q4_0 on the rest.
+::: tip
+U16G targets 16GB cards. It selectively quantizes different layers to keep the model fit in 16GB VRAM. However, if your memory is fast, it might still be faster to use the Q8_CR quant.
+:::
 
 ## Model Input and Output
 
