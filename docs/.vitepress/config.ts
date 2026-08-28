@@ -6,7 +6,7 @@ export default defineConfig({
   base,
   lang: 'en-US',
   title: 'molbal',
-  titleTemplate: ':title | molbal GGUF Quantization and Diffusion Tooling',
+  titleTemplate: ':title | GGUF Diffusion infopage',
   description:
     'GGUF quantization, open-source diffusion tooling, model registries, and ComfyUI workflows by molbal.',
   lastUpdated: true,
@@ -77,7 +77,11 @@ export default defineConfig({
       {
         text: 'Community',
         collapsed: false,
-        items: [{ text: 'Community and Socials', link: '/community/' }]
+        items: [
+          { text: 'Community and Support', link: '/community/' },
+          { text: 'Social Profiles', link: '/community/socials' },
+          { text: 'Books', link: '/community/books' }
+        ]
       }
     ],
     search: {

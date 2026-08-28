@@ -1,12 +1,12 @@
 ---
 title: Community
-description: Model requests, issue reports, and social profiles for molbal.
+description: Model requests, issue reports, and links to social profiles for molbal.
 outline: [2, 3]
 ---
 
 # Community and Support
 
-All my work here is open source contributions, and 
+All my work related to open source AI contains GGUF conversions, custom ComfyUI nodes created voluntarily for the community. Maintenance and code updates are provided on a best effort basis subject to availability, without formal support. Community contributions and Pull Requests to improve the nodes or models are always welcome.
 
 ## Requests for supporting new model types
 
@@ -22,13 +22,11 @@ meta="External link to GitHub"
 
 I provide GGUF conversions of base models. I upload them to Hugging Face and CivitAI.
 
-
 <BigExternalLink
 href="https://huggingface.co/molbal/models?search=gguf"
 label="Hugging Face repositories"
 meta="External link to Hugging Face"
 />
-
 
 ## Conversions of community fine-tunes
 
@@ -39,11 +37,3 @@ href="https://civitai.com/collections/17272716"
 label="Krea2 GGUF conversions collection"
 meta="External link to CivitAI"
 />
-
-
-
-## Profiles
-
-- LinkedIn: [linkedin.com/in/balint-molnar](https://www.linkedin.com/in/balint-molnar/)
-- Substack: [molbal94.substack.com](https://molbal94.substack.com/)
-- Civitai: [civitai.com/user/molbal](https://civitai.com/user/molbal)
