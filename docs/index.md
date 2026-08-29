@@ -6,7 +6,7 @@ layout: home
 hero:
   name: GGUF Diffusion
   text: Run diffusion transformers on consumer GPUs
-  tagline: GGUF quantization for ComfyUI. Quantized weights cut VRAM use so large models fit on a single GPU.
+  tagline: GGUF tooling for ComfyUI
   image:
     src: /art.webp
     alt: GGUF Diffusion artwork
@@ -23,10 +23,14 @@ hero:
 
 features:
   - title: 🎮 Consumer GPU Support
-    details: Quantized tensor storage and execution reduce VRAM use so large diffusion transformers run on a single GPU.
-  - title: 🔌 Open Interoperability
-    details: Compatible with city96, Unsloth, and other GGUF ecosystem providers. Workflows stay portable between runtimes.
+    details: Quantized model reduce VRAM use so larger models can run on a consumer GPUs.
+    link: /ecosystem/quant-formats
+  - title: 🔌 Focus on Interoperability
+    details: I open-source my loader, and quantization script to load GGUFs from other providers 
+    link: /ecosystem/quantizing-models
   - title: 📦 Model Registry
-    details: GGUF quants for MiniMax H3, LTX 2.5, Krea 2, Ideogram 4, and MiniMax Music 3, with hardware guidance.
-  - title: 🛠️ Workflow Library
-    details: ComfyUI node trees for text to image, image editing, video, multimodal to video, and audio generation.
+    details: Browse model conversions specifically for the GGUF loader nodes. 
+    link: /models/
+  - title: 🛠️ Sample Workflows
+    details: Sample ComfyUI workflows for text to image, image editing, video, multimodal to video, and audio generation.
+    link: /workflows/

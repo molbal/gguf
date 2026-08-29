@@ -29,4 +29,9 @@ You can install the pack through the Comfy Registry instead of cloning it:
 comfy node install comfyui-gguf-reboot
 ```
 
-The registry entry lives at [registry.comfy.org/publishers/molbal/nodes/comfyui-gguf-reboot](https://registry.comfy.org/publishers/molbal/nodes/comfyui-gguf-reboot). Restart ComfyUI after the install finishes.
+
+<BigExternalLink
+href="https://registry.comfy.org/publishers/molbal/nodes/comfyui-gguf-reboot"
+label="GGUF Loader Node pack"
+meta="External link to Comfy Registry"
+/>

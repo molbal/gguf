@@ -124,7 +124,7 @@ export default defineConfig({
       text: 'Edit this page on GitHub'
     },
     footer: {
-      message: 'GGUF quantization and open-source diffusion tooling.',
+      message: 'GGUF quantization and open-source tools.',
       copyright: 'Copyright © 2026 molbal'
     }
   }

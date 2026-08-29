@@ -43,4 +43,17 @@ Q8_CR stores most weighs in INT8 ConvRot therefore it is both high quality, but 
 | Tight VRAM budget                       | Q4                 |
 | Float dynamic range at 8-bit cost       | FP8                |
 
-Not every format is available for every model. See the [model pages](/models/) for exact availability. If you need some format, which is not available, 
+Not every format is available for every model. See the [model pages](/models/) for exact availability. If you need some format, which is not available, you can either quantize it yourself, or request it.
+
+
+<BigExternalLink
+href="/ecosystem/quantizing-models"
+label="Quantizing Models"
+meta="Ecosystem and Tooling"
+/>
+
+<BigExternalLink
+href="https://github.com/molbal/ComfyUI-GGUF/issues/new?template=request-model-support.md"
+label="Request a new quant"
+meta="External link to GitHub"
+/>

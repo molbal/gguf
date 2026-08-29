@@ -14,13 +14,8 @@ Ideogram 4 is a diffusion transformer built for text rendering and graphic desig
   meta="Hugging Face repository"
 />
 
-## Examples
-
-Example prompts this model handles well:
-
-- "A poster that reads WELCOME in bold serif letters on a cream background, minimal, centered."
-- "A coffee shop chalkboard menu with the word ESPRESSO in large hand lettering."
-- "A book cover titled The Quiet Garden with botanical line art."
+## Example
+![Test image](https://preview.redd.it/ideogram-gguf-in-comfyui-works-with-8gb-vram-v0-hbmgopyjpb6h1.jpg?width=1080&crop=smart&auto=webp&s=b185c5f3f67284934930a0de5d7e5fa49e6156ac)
 
 ## Available Quantizations
 

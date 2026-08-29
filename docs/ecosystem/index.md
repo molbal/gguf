@@ -6,53 +6,49 @@ outline: [2, 3]
 
 # Ecosystem and Tooling
 
-molbal's models run anywhere GGUF is understood. This page lists the ComfyUI node pack, the third-party runtimes, and the interoperability approach.
+This page lists the ComfyUI node pack, the third-party runtimes, and interoperability.
 
 ## ComfyUI
 
-Use ComfyUI with the [comfyui-gguf-reboot](https://registry.comfy.org/publishers/molbal/nodes/comfyui-gguf-reboot) node pack. The loader nodes give the best performance.
+I recommend to use ComfyUI with the [comfyui-gguf-reboot](https://registry.comfy.org/publishers/molbal/nodes/comfyui-gguf-reboot) node pack. The loader nodes give the best performance. The node pack provides GGUF loader nodes for diffusion transformers, text encoders, and VAEs.
 
-- Comfy Registry: [registry.comfy.org/publishers/molbal/nodes/comfyui-gguf-reboot](https://registry.comfy.org/publishers/molbal/nodes/comfyui-gguf-reboot)
-- The node pack provides GGUF loader nodes for diffusion transformers, text encoders, and VAEs.
+
+
+<BigExternalLink
+href="https://registry.comfy.org/publishers/molbal/nodes/comfyui-gguf-reboot"
+label="GGUF Loader Node pack"
+meta="External link to Comfy Registry"
+/>
 
 The loader nodes accept GGUF files directly. Load the model with the GGUF loader instead of the standard checkpoint loader for the best performance. See [Load GGUF models in ComfyUI](/ecosystem/comfyui-gguf) for install instructions.
 
-## Interoperability
+## Interoperability philosophy
 
-molbal's tooling avoids vendor lock-in.
+I do not benefit from locking you into using models converted by me and forcing you to use tools maintained by me, so I put in the effort to stay compatible with other tools in the ecosystem.
 
-- Backward and cross-compatibility with other GGUF providers, including city96 and Unsloth.
+- Backward and cross-compatibility with other GGUF providers, including [city96](huggingface.co/city96/models) and [Unsloth](https://huggingface.co/unsloth/models?search=gguf).
 - Workflows, quant formats, and node graphs stay open and interchangeable between providers.
 - Standard formats such as Q4_0, Q4_K_M, Q8_0, and BF16/FP8 variants load natively.
 
-## Third-party runtimes
+## Other recommended engines
 
 ### stable-diffusion.cpp
 
-A C/C++ GGUF runtime for diffusion models. It reads the same standard GGUF quant formats, so molbal's models load without conversion.
+A C/C++ GGUF runtime for diffusion models. It reads the same standard GGUF quant formats, so models published by the maintainer load without conversion. (Compatible types: Q4_0, Q4_1, Q5_0, Q5_1 and Q8_0)
+
+<BigExternalLink
+href="https://github.com/leejet/stable-diffusion.cpp"
+label="Download stable-diffusion.cpp"
+meta="External link to GitHub"
+/>
 
 ### Unsloth Studio
 
-Unsloth Studio and Unsloth's dynamic quantization engines produce and execute GGUF-compatible weights. Models quantized with Unsloth load in the ComfyUI node pack, and the reverse also works.
+Unsloth Studio and Unsloth's dynamic quantization engines produce and execute GGUF-compatible weights. Models quantized with Unsloth load in the ComfyUI node pack, and the reverse also works. (Compatible types: Q4_0, Q4_1, Q5_0, Q5_1 and Q8_0)
 
-| Tool | Role |
-| --- | --- |
-| comfyui-gguf-reboot | ComfyUI loader nodes for GGUF |
-| stable-diffusion.cpp | Native GGUF runtime |
-| Unsloth Studio | Quantization and GGUF-compatible weights |
-| city96 and GGML-family tooling | Cross-compatible providers |
 
-## Making your own quants
-
-You do not have to wait for a release. The node pack includes a converter that turns existing safetensors checkpoints into GGUF files. See [Quantizing Models](/ecosystem/quantizing-models) for the ComfyUI node, the command line tool, and the local conversion dashboard.
-
-::: tip Where to start
-Use ComfyUI with [comfyui-gguf-reboot](https://registry.comfy.org/publishers/molbal/nodes/comfyui-gguf-reboot). Then read [Quant Formats](/ecosystem/quant-formats) to pick a build for your GPU.
-:::
-
-## Next steps
-
-- [Quant Formats](/ecosystem/quant-formats)
-- [Quantizing Models](/ecosystem/quantizing-models)
-- [Load GGUF models in ComfyUI](/ecosystem/comfyui-gguf)
-- [Models Registry](/models/)
+<BigExternalLink
+href="https://unsloth.ai/docs/new/studio"
+label="Download Unsloth Studio"
+meta="External link to Unsloth.ai"
+/>
