@@ -26,7 +26,7 @@ The loader nodes accept GGUF files directly. Load the model with the GGUF loader
 
 I do not benefit from locking you into using models converted by me and forcing you to use tools maintained by me, so I put in the effort to stay compatible with other tools in the ecosystem.
 
-- Backward and cross-compatibility with other GGUF providers, including [city96](huggingface.co/city96/models) and [Unsloth](https://huggingface.co/unsloth/models?search=gguf).
+- Backward and cross-compatibility with other GGUF providers, including [city96](https://huggingface.co/city96/models) and [Unsloth](https://huggingface.co/unsloth/models?search=gguf).
 - Workflows, quant formats, and node graphs stay open and interchangeable between providers.
 - Standard formats such as Q4_0, Q4_K_M, Q8_0, and BF16/FP8 variants load natively.
 
