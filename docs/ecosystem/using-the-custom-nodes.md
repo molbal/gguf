@@ -26,6 +26,10 @@ This replaces rigid memory allocation with a flexible approach. Weights move in 
 
 Because model weights and LoRAs are handled more efficiently, out-of-memory errors become less common and switching between models is faster. The added layer management has a small cost: users with high-end GPUs running smaller workflows may see a slight performance hit.
 
+## Native quant execution
+
+The loader nodes also pick the execution path for custom quants. A `Q8_CR` file runs on ComfyUI's native INT8 path, and a `Q4_CR` file runs on a int4 tensor-core path. Weights stay at their quantized bit depth during inference, so no dequantize step runs in the matmul. For format details and requirements, see [Quant Formats](/ecosystem/quant-formats).
+
 
 <BigExternalLink
 href="https://comfyui.org/en/dynamic-vram-in-comfyui-saving-local"

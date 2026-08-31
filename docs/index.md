@@ -23,7 +23,7 @@ hero:
 
 features:
   - title: 🎮 Consumer GPU Support
-    details: Quantized model reduce VRAM use so larger models can run on a consumer GPUs.
+    details: Quantized model reduce VRAM use so larger models can run on a consumer GPUs. The Q4_CR INT4 format combines a Q4_0-sized file with speed surpassing INT8.
     link: /ecosystem/quant-formats
   - title: 🔌 Focus on Interoperability
     details: I open-source my loader, and quantization script to load GGUFs from other providers 
