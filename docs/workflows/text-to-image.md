@@ -1,22 +1,23 @@
 ---
 title: Text to Image
-description: Text-to-image pipelines for Ideogram 4 and Krea 2 GGUF quants in ComfyUI.
+description: Text-to-image pipelines for Qwen Image 2.1, Ideogram 4, and Krea 2 GGUF quants in ComfyUI.
 outline: [2, 3]
 ---
 
 # Text to Image
 
-Text-to-image pipelines built on Ideogram 4 and Krea 2 GGUF quants.
+Text-to-image pipelines built on Qwen Image 2.1, Ideogram 4, and Krea 2 GGUF quants.
 
 
 ## Models and formats
 
 The following models support Text-to-Image modalities:
-[krea2-gguf.json](../../../../../Downloads/krea2-gguf.json)
+
 | Model                                     | Strength                                         | Tradeoff                                              |
 |-------------------------------------------|--------------------------------------------------|-------------------------------------------------------|
 | [Ideogram 4](/models/ideogram-4)          | Excellent prompt following, great text rendering | Strict JSON prompt structure is cumbersome to follow. |
 | [Krea 2](/models/krea2)                   | Highly creative, decent prompt following         | Text rendering not always perfect                     |
+| [Qwen Image 2.1](/models/qwen-image-2-1)  | Text-to-image with optional image references     | Requires the Qwen3-VL 8B text encoder                 |
 
 ## Loading instructions
 

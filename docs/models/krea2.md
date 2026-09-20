@@ -47,7 +47,6 @@ Each quant is published for both the Raw and Turbo checkpoints.
 | Field | Value |
 | --- | --- |
 | Output | Image |
-| Architecture | Single transformer, no unconditional component |
 
 ## ComfyUI Setup
 
