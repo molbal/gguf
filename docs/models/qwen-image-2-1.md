@@ -16,10 +16,12 @@ Qwen Image 2.1 is a diffusion transformer for text-to-image generation and image
 
 The GGUF files below are local builds. They are ready for the Qwen Image 2.1 support in ComfyUI and ComfyUI-GGUF.
 
-## Examples
+## Example
 
-- Create a studio portrait with a detailed written sign and readable typography.
-- Edit the supplied image to change the lighting while preserving the subject and composition.
+
+![Example image](https://blobs-b2.civitai.com/file/blobs-managed-public/W08EGJQP1J2X8AS23SFME9QED0)
+
+> **Prompt:** 35mm film grain, dreamlike levitation, soft vintage color palette, minimalist expansive composition, sun-drenched golden hour, candid cinematic realism, low-angle perspective, a 25 years old french woman with bob haircut and thin body is jumping in the air. there is a speech bubble saying 'Qwen Image 2.1 GGUF' with bold letters
 
 ## Available Quantizations
 
