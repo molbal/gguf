@@ -82,7 +82,8 @@ export default defineConfig({
           { text: 'MiniMax H3', link: '/models/minimax-h3' },
           { text: 'Krea 2', link: '/models/krea2' },
           { text: 'Ideogram 4', link: '/models/ideogram-4' },
-          { text: 'Qwen Image 2.1', link: '/models/qwen-image-2-1' }
+          { text: 'Qwen Image 2.1', link: '/models/qwen-image-2-1' },
+          { text: 'Qwen Image 2.1 Turbo', link: '/models/qwen-image-2-1-turbo' }
         ]
       },
       {

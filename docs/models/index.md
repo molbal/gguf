@@ -17,6 +17,7 @@ Quantized GGUF builds of diffusion and audio models, maintained by molbal.
 | [Krea 2](/models/krea2) | Image synthesis and design | [HF](https://huggingface.co/molbal/krea2-gguf)            |
 | [Ideogram 4](/models/ideogram-4) | Text rendering and graphic design | [HF](https://huggingface.co/molbal/ideogram-4-gguf)       |
 | [Qwen Image 2.1](/models/qwen-image-2-1) | Text-to-image and image editing | [HF](https://huggingface.co/molbal/Qwen-Image-2.1-GGUF)   |
+| [Qwen Image 2.1 Turbo](/models/qwen-image-2-1-turbo) | Turbo text-to-image and image editing | [HF](https://huggingface.co/molbal/Qwen-Image-2.1-Turbo-GGUF) |
 
 ## How to use these models
 
