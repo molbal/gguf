@@ -32,7 +32,7 @@ Inputs:
 |----------------------------|-----------------------------------------------------------------------------------------------------------------------------|
 | source_path                | Absolute path to the source checkpoint on disk.                                                                             |
 | destination_path           | Output .gguf path. Leave empty to derive it from the source name.                                                           |
-| quantization               | Output format. Choose a standard format, or TARGET_SIZE for a size budget.                                                  |
+| quantization               | Output format. Choose a standard format, a uniform or mixed K-quant format, or TARGET_SIZE for a size budget.                |
 | max_size_mb                | Output size cap in MiB. Required only for TARGET_SIZE.                                                                      |
 | target_size_q8_type        | Baseline format for TARGET_SIZE: Q8_CR or Q8_0.                                                                             |
 | quantization_device        | Q8_CR conversion device: auto, cpu, or cuda. (Only Q8_CR quants can be accelarated, all other formats are quantized on CPU) |
@@ -69,7 +69,7 @@ Useful flags:
 
 | Flag | Purpose |
 | --- | --- |
-| `--quant-type` | Output format: BF16, Q8_0, Q5_1, Q5_0, Q4_1, Q4_0, Q8_CR, or Q4_CR_W4A4. |
+| `--quant-type` | Output format: BF16, Q8_0, Q6_K, Q5_K, Q5_K_S, Q5_K_M, Q4_K, Q4_K_S, Q4_K_M, Q5_1, Q5_0, Q4_1, Q4_0, Q8_CR, or Q4_CR_W4A4. |
 | `--max-size-mb` | Target-size mode, capped at the given MiB. |
 | `--target-size-q8-type` | Baseline for target-size mode: Q8_CR or Q8_0. |
 | `--quantization-device` | Device for Q8_CR conversion: auto, cpu, or cuda. |
@@ -101,13 +101,17 @@ The node and CLI expose these formats. For how they compare in practice, see [Qu
 |-------------|------------------------------------------------------------------------------------------------|
 | BF16        | Lossless re-pack for BF16 source models.                                                       |
 | Q8_0        | Portable, high quality 8-bit. A safe default.                                                  |
-| Q8_CR       | Maintainer recommendation for NVIDIA RTX 30-series. Native INT8 execution with strong quality. |
-| Q4_CR_W4A4  | Native INT4 execution. Roughly Q4_0 file size, slightly faster than Q8_CR. |
-| Q5_1, Q5_0  | Middle ground between 8-bit and 4-bit.                                                         |
-| Q4_1, Q4_0  | Smallest files for tight VRAM. Largest quality trade-off.                                      |
-| TARGET_SIZE | Mixed build under a size budget, described below.                                              |
+| Q8_CR | Maintainer recommendation for NVIDIA RTX 30-series. Native INT8 execution with strong quality. |
+| Q4_CR_W4A4 | Native INT4 execution. Roughly Q4_0 file size, slightly faster than Q8_CR. |
+| Q6_K, Q5_K, Q4_K | GGML K-quants for smaller files. Inference dequantizes to floating point by default and can be slower for diffusion. |
+| Q5_K_S, Q5_K_M, Q4_K_S, Q4_K_M | Mixed K-quant layouts with different tensor precision allocations. |
+| Q5_1, Q5_0 | Middle ground between 8-bit and 4-bit. |
+| Q4_1, Q4_0 | Smallest files for tight VRAM. Largest quality trade-off. |
+| TARGET_SIZE | Mixed build under a size budget, described below. |
 
-`_K` formats are not supported for diffusion models. They work only for text encoders.
+The converter can create uniform `Q4_K`, `Q5_K`, and `Q6_K` GGML formats, as well as mixed `Q4_K_S`, `Q4_K_M`, `Q5_K_S`, and `Q5_K_M` formats. K-quant creation uses a bundled GGML-compatible encoder and does not require the installed `gguf` package to write K blocks. Eligible rows must be divisible by 256; incompatible tensors are rejected with their name and shape. Architecture-protected and unsupported tensors retain higher precision.
+
+K-quant GGUFs can be loaded for diffusion models and text encoders. By default, K-quant Linear weights are dequantized to floating point before PyTorch computation. This can reduce file size, but it does not provide native low-bit matrix multiplication and may slow diffusion denoising. An experimental Triton decode backend is available only as an opt-in and accelerates a limited set of Q5_K/Q6_K Linear shapes on CUDA SM 8.6. It remains disabled by default; see the [K-quant inference notes](https://github.com/molbal/ComfyUI-GGUF/blob/v26-10-11/docs/k-quant-inference.md) for limitations and benchmark results. Do not expect a speedup without testing your model and GPU.
 
 ## Target size quantization
 

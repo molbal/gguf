@@ -10,14 +10,17 @@ GGUF supports several quantization schemes. Each trades precision against memory
 
 ## Standard formats
 
-These formats load natively in ComfyUI with [comfyui-gguf-reboot](https://registry.comfy.org/publishers/molbal/nodes/comfyui-gguf-reboot).
+These formats load with [comfyui-gguf-reboot](https://registry.comfy.org/publishers/molbal/nodes/comfyui-gguf-reboot). GGML formats, including `_K`, use dequantization to floating-point weights for inference by default. They are supported for diffusion models, but smaller files do not imply faster denoising.
 
 | Format | Bit depth | Notes |
 | --- | --- | --- |
-| Q4_0 | ~4-bit | Smallest footprint, lowest precision. Good for tight VRAM budgets. |
-| Q8_0 | ~8-bit | Near full-precision quality with meaningful memory savings. |
+| Q4_0 | ~4-bit | Small footprint with a larger quality trade-off. |
+| Q8_0 | ~8-bit | High-quality standard GGML format with meaningful memory savings. |
+| Q4_K, Q5_K, Q6_K | 4/5/6-bit | K-quant GGML formats. Available as uniform and mixed quantization choices. K-quant Linear inference uses the portable dequantization path by default. |
 | BF16 | 16-bit | Brain-float 16 baseline. |
 | FP8 | 8-bit float | Float dynamic range at 8-bit cost. |
+
+An optional bundled Triton backend can accelerate decoding for a limited set of Q5_K/Q6_K Linear layers on CUDA SM 8.6 when explicitly enabled. It remains experimental, still materializes floating-point weights, and falls back for unsupported shapes and hardware. Results vary by model, GPU, and workflow. See the [K-quant inference notes](https://github.com/molbal/ComfyUI-GGUF/blob/v26-10-11/docs/k-quant-inference.md) before enabling it. The backend is off by default.
 
 
 ## Custom formats
@@ -43,13 +46,14 @@ It has a few additional requirements::
 - Conversion and loading need comfy_kitchen 0.2.27 or newer. (ComfyUI bundles it, so this should not be a problem).
 
 
-## Closing thoughts 
+## Closing thoughts
 
-| Situation                               | Recommended format |
-|-----------------------------------------|--------------------|
-| Maximum quality, ample VRAM             | Q8 or BF16         |
-| Tight VRAM budget                       | Q4                 |
-| Float dynamic range at 8-bit cost       | FP8                |
+| Situation | Recommended format |
+| --- | --- |
+| Maximum quality, ample VRAM | Q8 or BF16 |
+| Tight VRAM budget | Q4 |
+| Float dynamic range at 8-bit cost | FP8 |
+| Higher quality GGUF storage where slightly slower performance is acceptable | Q4_K, Q5_K, or Q6_K |
 
 Not every format is available for every model. See the [model pages](/models/) for exact availability. If you need some format, which is not available, you can either quantize it yourself, or request it.
 

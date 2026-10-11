@@ -1,12 +1,12 @@
 ---
 title: Image Edit
-description: Inpainting, image-to-image, and regional editing with Qwen Image 2.1, Ideogram 4, and Krea 2 GGUF quants.
+description: Inpainting, image-to-image, and regional editing with Qwen Image 2.1 Turbo, Qwen Image 2.1, Ideogram 4, and Krea 2 GGUF quants.
 outline: [2, 3]
 ---
 
 # Image Edit
 
-Inpainting, image-to-image, and regional editing setups built on Qwen Image 2.1, Ideogram 4, and Krea 2 GGUF quants.
+Inpainting, image-to-image, and regional editing setups built on Qwen Image 2.1 Turbo, Qwen Image 2.1, Ideogram 4, and Krea 2 GGUF quants.
 
 ## Inpainting
 
@@ -26,6 +26,7 @@ Chain a mask into the conditioning stage. The GGUF diffusion model regenerates o
 | --- |---------------------------------------------------------------------------------| --- |
 | Ideogram 4 | [molbal/ideogram-4-gguf](https://huggingface.co/molbal/ideogram-4-gguf)         | Q8_CR, Q8_0 |
 | Krea 2 | [molbal/krea2-gguf](https://huggingface.co/molbal/krea2-gguf)                   | Q8_0, Q4_K_M |
+| Qwen Image 2.1 Turbo | [molbal/Qwen-Image-2.1-Turbo-GGUF](https://huggingface.co/molbal/Qwen-Image-2.1-Turbo-GGUF) | Q8_CR, Q8_0, Q6_K, Q4_K_M |
 | Qwen Image 2.1 | [molbal/Qwen-Image-2.1-GGUF](https://huggingface.co/molbal/Qwen-Image-2.1-GGUF) | Q8_CR, Q8_0 |
 
 ## Loading instructions
