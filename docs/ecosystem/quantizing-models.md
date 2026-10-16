@@ -87,19 +87,19 @@ If you prefer a browser UI, start the conversion dashboard from the `ComfyUI-GGU
 python tools\conversion_webui.py
 ```
 
-Then open `http://127.0.0.1:8189`. The dashboard queues conversions and shows the converter's live output.
+Then open `http://127.0.0.1:8189`. The dashboard lets you configure conversions and queue multiple quantization formats in a single batch.
 
 ![Local conversion dashboard](/assets/conversion-web-ui.png)
 
-It listens on the local machine only. Enter filesystem paths for the source and destination, it does not upload your checkpoints. It runs one conversion at a time, which avoids two jobs competing for GPU memory. Use `--port <port>` for a different port, or `--no-browser` to skip auto-opening a tab.
+It listens on the local machine only. Enter filesystem paths for the source and destination, as it does not upload your checkpoints. In Fixed quantization mode, you can select one or more formats, and the converter appends each format's postfix to the destination filename. You can also switch the conversion plan to Target output size, choose the quantization device, fuse LoRAs, or stream safetensors from disk. The conversion queue runs one job at a time to avoid competing for GPU memory, and each job has a full-screen view for logs. Use `--port <port>` for a different port, or `--no-browser` to skip auto-opening a tab.
 
 ## Choosing a quantization format
 
-The node and CLI expose these formats. For how they compare in practice, see [Quant Formats](/ecosystem/quant-formats).
+The conversion tools expose these formats. For how they compare in practice, see [Quant Formats](/ecosystem/quant-formats).
 
 | Format      | Recommended use                                                                                |
 |-------------|------------------------------------------------------------------------------------------------|
-| BF16        | Lossless re-pack for BF16 source models.                                                       |
+| BF16 (or Source) | Lossless re-pack that preserves F16 or BF16 source precision.                             |
 | Q8_0        | Portable, high quality 8-bit. A safe default.                                                  |
 | Q8_CR | Maintainer recommendation for NVIDIA RTX 30-series. Native INT8 execution with strong quality. |
 | Q4_CR | Native INT4 execution with INT4 activations (`w4a4`). Roughly Q4_0 file size, slightly faster than Q8_CR. |
@@ -124,11 +124,11 @@ Set the quantization to TARGET_SIZE and give a `max_size_mb` budget. The convert
 
 Q4_0 is the smallest supported core format. A budget below the minimum possible size fails with an error that reports that minimum, because Q3 and lower are currently not used.
 
-Pass `--target-size-q8-type Q8_0` (or select Q8_0 in the node) to get a standard GGUF baseline instead of the Q8_CR INT8 layout. Choose that when portability to other runtimes matters more than native INT8 speed.
+Pass `--target-size-q8-type Q8_0` (or select Q8_0 in the node or dashboard) to get a standard GGUF baseline instead of the Q8_CR INT8 layout. Choose that when portability to other runtimes matters more than native INT8 speed.
 
 ## Streaming for large models
 
-Both the node and the CLI accept a streamed mode. For `.safetensors` sources, the converter then reads, fuses, quantizes, and writes one tensor at a time, staging data on disk. Peak RAM and VRAM stay manageable even for large video models.
+The conversion tools accept a streamed mode. For `.safetensors` sources, the converter then reads, fuses, quantizes, and writes one tensor at a time, staging data on disk. Peak RAM and VRAM stay manageable even for large video models.
 
 A few limits apply:
 
@@ -139,10 +139,7 @@ Enable it whenever a conversion fails or the system starts swapping without it.
 
 ## Merging LoRAs during conversion
 
-Both conversion paths can fuse LoRA adapters before quantizing. 
-
-- Node: fill the optional `lora_paths` and `lora_strengths` inputs with absolute paths, one per line or comma-separated, and matching strengths.
-- CLI: pass `--lora path\to\adapter.safetensors`, repeated for each adapter, with a matching `--lora-strength` for each. Strengths default to 1.0.
+All conversion paths can fuse LoRA adapters before quantizing. In the node, fill the optional `lora_paths` and `lora_strengths` inputs with absolute paths, one per line or comma-separated, and matching strengths. In the CLI, pass `--lora path\to\adapter.safetensors`, repeated for each adapter, with a matching `--lora-strength` for each (strengths default to 1.0). In the dashboard, click **Fuse LoRAs +** to add adapter paths and strengths before starting the job.
 
 Adapters can be `.safetensors` LoRA files or `.gguf` LoRA adapters. Fusion happens in FP32, one matrix at a time, before quantization.
 
