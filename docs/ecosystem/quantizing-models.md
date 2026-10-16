@@ -35,7 +35,7 @@ Inputs:
 | quantization               | Output format. Choose a standard format, a uniform or mixed K-quant format, or TARGET_SIZE for a size budget.                |
 | max_size_mb                | Output size cap in MiB. Required only for TARGET_SIZE.                                                                      |
 | target_size_q8_type        | Baseline format for TARGET_SIZE: Q8_CR or Q8_0.                                                                             |
-| quantization_device        | Q8_CR conversion device: auto, cpu, or cuda. (Only Q8_CR quants can be accelarated, all other formats are quantized on CPU) |
+| quantization_device        | Q8_CR and Q4_CR conversion device: auto, cpu, or cuda. (Only Q8_CR and Q4_CR quants can be accelerated, all other formats are quantized on CPU) |
 | overwrite                  | Replace an existing output file.                                                                                            |
 | streamed                   | Process one tensor at a time to reduce RAM and VRAM use.                                                                    |
 | lora_paths, lora_strengths | Optional LoRA files to merge during conversion.                                                                             |
@@ -69,10 +69,10 @@ Useful flags:
 
 | Flag | Purpose |
 | --- | --- |
-| `--quant-type` | Output format: BF16, Q8_0, Q6_K, Q5_K, Q5_K_S, Q5_K_M, Q4_K, Q4_K_S, Q4_K_M, Q5_1, Q5_0, Q4_1, Q4_0, Q8_CR, or Q4_CR_W4A4. |
+| `--quant-type` | Output format: BF16, Q8_0, Q6_K, Q5_K, Q5_K_S, Q5_K_M, Q4_K, Q4_K_S, Q4_K_M, Q5_1, Q5_0, Q4_1, Q4_0, Q8_CR, Q4_CR_W4A4 (or Q4_CR), or Q4_CR_L. |
 | `--max-size-mb` | Target-size mode, capped at the given MiB. |
 | `--target-size-q8-type` | Baseline for target-size mode: Q8_CR or Q8_0. |
-| `--quantization-device` | Device for Q8_CR conversion: auto, cpu, or cuda. |
+| `--quantization-device` | Device for Q8_CR and Q4_CR conversion: auto, cpu, or cuda. |
 | `--streamed` | Tensor-by-tensor processing for safetensors sources. |
 | `--lora` and `--lora-strength` | Merge LoRA adapters before quantizing. Repeat for several adapters. |
 
@@ -102,7 +102,8 @@ The node and CLI expose these formats. For how they compare in practice, see [Qu
 | BF16        | Lossless re-pack for BF16 source models.                                                       |
 | Q8_0        | Portable, high quality 8-bit. A safe default.                                                  |
 | Q8_CR | Maintainer recommendation for NVIDIA RTX 30-series. Native INT8 execution with strong quality. |
-| Q4_CR_W4A4 | Native INT4 execution. Roughly Q4_0 file size, slightly faster than Q8_CR. |
+| Q4_CR | Native INT4 execution with INT4 activations (`w4a4`). Roughly Q4_0 file size, slightly faster than Q8_CR. |
+| Q4_CR_L | Native INT4 weights with INT8 activations (`w4a8`). Better quality retention than Q4_CR_W4A4 at nearly the same file size, at ~Q8_CR speed. |
 | Q6_K, Q5_K, Q4_K | GGML K-quants for smaller files. Inference dequantizes to floating point by default and can be slower for diffusion. |
 | Q5_K_S, Q5_K_M, Q4_K_S, Q4_K_M | Mixed K-quant layouts with different tensor precision allocations. |
 | Q5_1, Q5_0 | Middle ground between 8-bit and 4-bit. |
@@ -146,8 +147,6 @@ Both conversion paths can fuse LoRA adapters before quantizing.
 Adapters can be `.safetensors` LoRA files or `.gguf` LoRA adapters. Fusion happens in FP32, one matrix at a time, before quantization.
 
 ## After conversion
-
-Q4_CR_W4A4 keeps only eligible 2-D Linear weights in packed INT4. Matrices that do not divide by the block size stay FP16, and text encoders are not converted to this format.
 
 Place the finished GGUF where the loaders expect it:
 

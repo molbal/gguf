@@ -35,13 +35,19 @@ ConvRot rotates weight tensors before quantization so that sensitive convolution
 
 Q8_CR stores most weights in INT8 ConvRot, therefore it is both high quality and fast on GPUs with native INT8 acceleration, such as the NVIDIA RTX 30-series. The maintainer recommends it for these systems.
 
-### Q4_CR (INT4 ConvRot)
+### Q4_CR (INT4 ConvRot, INT4 Activations)
 
-Q4_CR is a native INT4 format. Weights are stored as packed INT4, activations are quantized to INT4 at run time, and the GPU runs an int4 tensor-core matmul. Weights stay INT4 during inference, in the same way Q8_CR keeps weights at INT8.
+Q4_CR is a native INT4 format. Weights are stored as packed INT4, activations are quantized to INT4 at run time, and the GPU runs an int4 tensor-core matmul. Weights stay INT4 during inference, in the same way Q8_CR keeps weights at INT8. 
 
-The converter rotates each eligible Linear weight with ConvRot, packs two 4-bit values per byte, and stores one FP16 scale per output row. Files are roughly the size of Q4_0 and much smaller than Q8_CR. Compared to Q8_CR (INT8), Q4_CR (INT4) inference performance is slightly better, VRAM/storage usage is almost halved, and output quality is slightly degraded.
+The converter rotates each eligible Linear weight with ConvRot, optimizes per-row FP16 scales to reduce 4-bit rounding error, and packs two signed 4-bit values per byte. Sensitive layers do stay in Q8_CR. Files are roughly the size of Q4_0 and much smaller than Q8_CR. Compared to Q8_CR (INT8), Q4_CR (INT4) inference performance is slightly better, VRAM/storage usage is almost halved, and output quality is slightly degraded.
 
-It has a few additional requirements::
+### Q4_CR_L (INT4 ConvRot, INT8 Activations)
+
+Q4_CR_L uses the same packed INT4 ConvRot weight layout as Q4_CR, but runs with INT8 activations (`w4a8`) instead of INT4 activations (`w4a4`). On CUDA hardware, `comfy_kitchen` quantizes the rotated activations row-wise to INT8 and executes an INT4-weight by INT8-activation matmul. When that CUDA backend is unavailable, the loader falls back to dequantized floating-point PyTorch compute.
+
+Q4_CR_L also keeps additional sensitive layers in Q8_CR on architectures such as Flux 3 Klein, improving visual fidelity while keeping file size close to Q4_CR. On both Q4_CR and Q4_CR_L, compatible runtime LoRA and LoKr adapters keep the packed INT4 base weight and add a low-rank correction in the compute dtype.
+
+Both INT4 ConvRot formats have a few additional requirements:
 
 - Conversion and loading need comfy_kitchen 0.2.27 or newer. (ComfyUI bundles it, so this should not be a problem).
 

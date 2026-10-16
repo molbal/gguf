@@ -28,7 +28,7 @@ Because model weights and LoRAs are handled more efficiently, out-of-memory erro
 
 ## Native quant execution
 
-The loader nodes also pick the execution path for custom quants. A `Q8_CR` file runs on ComfyUI's native INT8 path, and a `Q4_CR` file runs on a int4 tensor-core path. Weights stay at their quantized bit depth during inference, so no dequantize step runs in the matmul. For format details and requirements, see [Quant Formats](/ecosystem/quant-formats).
+The loader nodes also pick the execution path for custom quants. A `Q8_CR` file runs on ComfyUI's native INT8 path, and a `Q4_CR` or `Q4_CR_L` file runs on an int4 tensor-core path (with INT4 activations for `Q4_CR` and INT8 activations for `Q4_CR_L`). Weights stay at their quantized bit depth during inference, so no dequantize step runs in the matmul. For format details and requirements, see [Quant Formats](/ecosystem/quant-formats).
 
 
 <BigExternalLink
