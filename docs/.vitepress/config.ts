@@ -76,6 +76,7 @@ export default defineConfig({
         collapsed: false,
         items: [
           { text: 'Overview', link: '/models/' },
+          { text: 'Fibo 2.0', link: '/models/fibo-2.0' },
           { text: 'Flux 3 Klein', link: '/models/flux-3-klein' },
           { text: 'MiniMax Music 3', link: '/models/minimax-music3' },
           { text: 'MiniMax H3 Turbo', link: '/models/minimax-h3-turbo' },
@@ -134,4 +135,3 @@ export default defineConfig({
     }
   }
 })
-

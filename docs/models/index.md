@@ -10,6 +10,7 @@ Quantized GGUF builds of diffusion and audio models, maintained by molbal.
 
 | Model | Focus | Repository                                                |
 | --- | --- |-----------------------------------------------------------|
+| [Fibo 2.0](/models/fibo-2.0) | Text-to-image and image editing | [HF](https://huggingface.co/molbal/fibo-2.0-GGUF) |
 | [Flux 3 Klein](/models/flux-3-klein) | Text-to-image and multi-reference editing | [HF](https://huggingface.co/molbal/Flux-3-Klein-GGUF)     |
 | [MiniMax Music 3](/models/minimax-music3) | Audio and music up to 5 minutes | [HF](https://huggingface.co/molbal/Minimax-Music3-GGUF)   |
 | [MiniMax H3 Turbo](/models/minimax-h3-turbo) | Video and multimodal | [HF](https://huggingface.co/molbal/MiniMax-H3-Turbo-GGUF) |
@@ -36,5 +37,3 @@ Read the per-model pages or [Quant Formats](/ecosystem/quant-formats).
 ## Requesting a new model
 
 File a request at [github.com/molbal/gguf](https://github.com/molbal/gguf). See [Community](/community/) for details.
-
-

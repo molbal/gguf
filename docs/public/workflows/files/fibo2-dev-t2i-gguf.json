@@ -1,0 +1,534 @@
+{
+  "id": "0ae2b50b-b07a-4465-bb7c-d8fe58e8e0ac",
+  "revision": 0,
+  "last_node_id": 46,
+  "last_link_id": 53,
+  "nodes": [
+    {
+      "id": 2,
+      "type": "CLIPLoader",
+      "pos": [
+        -100,
+        20
+      ],
+      "size": [
+        440,
+        120
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "slot_index": 0,
+          "links": [
+            43
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPLoader",
+        "models": [
+          {
+            "name": "qwen3vl_4b_int8_convrot.safetensors",
+            "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein-comfy/resolve/main/text_encoders/qwen3vl_4b_int8_convrot.safetensors",
+            "directory": "text_encoders"
+          }
+        ]
+      },
+      "widgets_values": [
+        "qwen3vl_4b_int8_convrot.safetensors",
+        "fibo2",
+        "default"
+      ],
+      "widgets_values_named": {
+        "clip_name": "qwen3vl_4b_int8_convrot.safetensors",
+        "type": "fibo2",
+        "device": "default"
+      }
+    },
+    {
+      "id": 3,
+      "type": "VAELoader",
+      "pos": [
+        -100,
+        210
+      ],
+      "size": [
+        450,
+        70
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "slot_index": 0,
+          "links": [
+            5,
+            25
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader",
+        "models": [
+          {
+            "name": "flux2-vae.safetensors",
+            "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein-comfy/resolve/main/vae/flux2-vae.safetensors",
+            "directory": "vae"
+          }
+        ]
+      },
+      "widgets_values": [
+        "fibo2-flux2-vae.safetensors"
+      ],
+      "widgets_values_named": {
+        "vae_name": "fibo2-flux2-vae.safetensors"
+      }
+    },
+    {
+      "id": 4,
+      "type": "TextEncodeFibo2",
+      "pos": [
+        410,
+        -170
+      ],
+      "size": [
+        480,
+        360
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 43
+        },
+        {
+          "name": "images.image_1",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "vae",
+          "shape": 7,
+          "type": "VAE",
+          "link": 25
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            22
+          ]
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "slot_index": 1,
+          "links": [
+            23
+          ]
+        },
+        {
+          "name": "latent",
+          "type": "LATENT",
+          "slot_index": 2,
+          "links": [
+            24
+          ]
+        }
+      ],
+      "title": "Fibo2 Prompt",
+      "properties": {
+        "Node name for S&R": "TextEncodeFibo2"
+      },
+      "widgets_values": [
+        "{\"short_description\":\"A blue ceramic mug beside one red apple on a warm neutral table, arranged as a clean still life.\",\"objects\":[{\"description\":\"a blue ceramic mug\",\"position\":\"right of center\",\"texture\":\"smooth glazed ceramic\"},{\"description\":\"one ripe red apple\",\"position\":\"left of the mug\",\"texture\":\"natural matte skin\"}],\"background_setting\":\"a beige tabletop against a softly lit neutral wall\",\"lighting\":{\"type\":\"soft morning window light\"},\"photographic_characteristics\":{\"focus\":\"crisp object edges with gentle background falloff\"},\"style_medium\":\"editorial product photography\"}",
+        "blurry, soft focus, airbrushed texture, oversaturated colors",
+        1024,
+        1024,
+        1
+      ],
+      "widgets_values_named": {
+        "prompt": "{\"short_description\":\"A blue ceramic mug beside one red apple on a warm neutral table, arranged as a clean still life.\",\"objects\":[{\"description\":\"a blue ceramic mug\",\"position\":\"right of center\",\"texture\":\"smooth glazed ceramic\"},{\"description\":\"one ripe red apple\",\"position\":\"left of the mug\",\"texture\":\"natural matte skin\"}],\"background_setting\":\"a beige tabletop against a softly lit neutral wall\",\"lighting\":{\"type\":\"soft morning window light\"},\"photographic_characteristics\":{\"focus\":\"crisp object edges with gentle background falloff\"},\"style_medium\":\"editorial product photography\"}",
+        "negative_prompt": "blurry, soft focus, airbrushed texture, oversaturated colors",
+        "width": 1024,
+        "height": 1024,
+        "batch_size": 1
+      },
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 7,
+      "type": "KSampler",
+      "pos": [
+        960,
+        -170
+      ],
+      "size": [
+        340,
+        520
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 53
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 22
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 23
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 24
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "slot_index": 0,
+          "links": [
+            4
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        20261021,
+        "fixed",
+        50,
+        5,
+        "euler",
+        "simple",
+        1
+      ],
+      "widgets_values_named": {
+        "seed": 20261021,
+        "control_after_generate": "fixed",
+        "steps": 50,
+        "cfg": 5,
+        "sampler_name": "euler",
+        "scheduler": "simple",
+        "denoise": 1
+      }
+    },
+    {
+      "id": 8,
+      "type": "VAEDecode",
+      "pos": [
+        1430,
+        -160
+      ],
+      "size": [
+        210,
+        50
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 4
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 5
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            6
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      }
+    },
+    {
+      "id": 9,
+      "type": "SaveImage",
+      "pos": [
+        1720,
+        -160
+      ],
+      "size": [
+        530,
+        620
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 6
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "fibo2_dev_gate_b"
+      ],
+      "widgets_values_named": {
+        "filename_prefix": "fibo2_dev_gate_b"
+      }
+    },
+    {
+      "id": 19,
+      "type": "MarkdownNote",
+      "pos": [
+        1430,
+        -30
+      ],
+      "size": [
+        210,
+        90
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Note: Steps",
+      "properties": {},
+      "widgets_values": [
+        "Text-to-image (Dev): 50 steps, CFG 5."
+      ],
+      "widgets_values_named": {
+        "text": "Text-to-image (Dev): 50 steps, CFG 5."
+      },
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 45,
+      "type": "MarkdownNote",
+      "pos": [
+        -620.0996949308417,
+        -205.7987912430767
+      ],
+      "size": [
+        470,
+        660
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "## Model Links\n\n- [Hugging Face: molbal/fibo-2.0-GGUF](https://huggingface.co/molbal/fibo-2.0-GGUF)\n- [Fibo 2.0 information page](https://molbal.github.io/gguf/models/fibo-2.0)\n- [GGUF Loader](https://registry.comfy.org/publishers/molbal/nodes/comfyui-gguf-reboot)\n\n**diffusion_models**\n\n- [fibo2-dev-Q8_0.gguf](https://huggingface.co/molbal/fibo-2.0-GGUF/blob/main/fibo2-dev-Q8_0.gguf)\n\n**text_encoders**\n\n- [qwen3vl_4b_int8_convrot.safetensors](https://huggingface.co/Comfy-Org/Fibo-2.0/resolve/main/text_encoders/qwen3vl_4b_int8_convrot.safetensors)\n\n**vae**\n\n- [flux2-vae.safetensors](https://huggingface.co/Comfy-Org/Fibo-2.0/resolve/main/vae/flux2-vae.safetensors)\n\n## Model Storage Location\n\n- Diffusion model: `ComfyUI/models/diffusion_models/fibo2-dev-Q8_0.gguf`\n- Text encoder: `ComfyUI/models/text_encoders/qwen3vl_4b_int8_convrot.safetensors`\n- Fibo 2.0 VAE: `ComfyUI/models/vae/fibo2-flux2-vae.safetensors` (save the downloaded `flux2-vae.safetensors` under this name to keep it separate from other FLUX.2 VAEs)\n\nThe diffusion model loads through the `Unet Loader (GGUF, Dynamic VRAM)` node. This loader gives the best performance; the other GGUF quantizations will be in the same release repository.\n"
+      ],
+      "widgets_values_named": {
+        "text": "## Model Links\n\n- [Hugging Face: molbal/fibo-2.0-GGUF](https://huggingface.co/molbal/fibo-2.0-GGUF)\n- [Fibo 2.0 information page](https://molbal.github.io/gguf/models/fibo-2.0)\n- [GGUF Loader](https://registry.comfy.org/publishers/molbal/nodes/comfyui-gguf-reboot)\n\n**diffusion_models**\n\n- [fibo2-dev-Q8_0.gguf](https://huggingface.co/molbal/fibo-2.0-GGUF/blob/main/fibo2-dev-Q8_0.gguf)\n\n**text_encoders**\n\n- [qwen3vl_4b_int8_convrot.safetensors](https://huggingface.co/Comfy-Org/Fibo-2.0/resolve/main/text_encoders/qwen3vl_4b_int8_convrot.safetensors)\n\n**vae**\n\n- [flux2-vae.safetensors](https://huggingface.co/Comfy-Org/Fibo-2.0/resolve/main/vae/flux2-vae.safetensors)\n\n## Model Storage Location\n\n- Diffusion model: `ComfyUI/models/diffusion_models/fibo2-dev-Q8_0.gguf`\n- Text encoder: `ComfyUI/models/text_encoders/qwen3vl_4b_int8_convrot.safetensors`\n- Fibo 2.0 VAE: `ComfyUI/models/vae/fibo2-flux2-vae.safetensors` (save the downloaded `flux2-vae.safetensors` under this name to keep it separate from other FLUX.2 VAEs)\n\nThe diffusion model loads through the `Unet Loader (GGUF, Dynamic VRAM)` node. This loader gives the best performance; the other GGUF quantizations will be in the same release repository.\n"
+      },
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 46,
+      "type": "UnetLoaderGGUFDynamicVRAM",
+      "pos": [
+        -109.70299322463642,
+        -133.23905168751705
+      ],
+      "size": [
+        434.6439853041344,
+        58
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            53
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UnetLoaderGGUFDynamicVRAM"
+      },
+      "widgets_values": [
+        "fibo2-dev-Q8_0.gguf"
+      ],
+      "widgets_values_named": {
+        "unet_name": "fibo2-dev-Q8_0.gguf"
+      }
+    }
+  ],
+  "links": [
+    [
+      4,
+      7,
+      0,
+      8,
+      0,
+      "LATENT"
+    ],
+    [
+      5,
+      3,
+      0,
+      8,
+      1,
+      "VAE"
+    ],
+    [
+      6,
+      8,
+      0,
+      9,
+      0,
+      "IMAGE"
+    ],
+    [
+      22,
+      4,
+      0,
+      7,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      23,
+      4,
+      1,
+      7,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      24,
+      4,
+      2,
+      7,
+      3,
+      "LATENT"
+    ],
+    [
+      43,
+      2,
+      0,
+      4,
+      0,
+      "CLIP"
+    ],
+    [
+      53,
+      46,
+      0,
+      7,
+      0,
+      "MODEL"
+    ],
+    [
+      25,
+      3,
+      0,
+      4,
+      2,
+      "VAE"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "Models",
+      "bounding": [
+        -120,
+        -240,
+        490,
+        610
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    },
+    {
+      "id": 2,
+      "title": "Prompt",
+      "bounding": [
+        400,
+        -240,
+        470,
+        610
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    },
+    {
+      "id": 3,
+      "title": "Sampling",
+      "bounding": [
+        900,
+        -240,
+        460,
+        610
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.859231190215111,
+      "offset": [
+        982.4744127972025,
+        724.2696537273642
+      ]
+    },
+    "frontendVersion": "1.57.1"
+  },
+  "version": 0.4
+}
