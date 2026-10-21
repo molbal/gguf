@@ -91,7 +91,7 @@
         "collapsed": true
       },
       "order": 5,
-      "mode": 0,
+      "mode": 4,
       "showAdvanced": true,
       "inputs": [
         {
@@ -182,7 +182,7 @@
         "randomize",
         8,
         1,
-        "er_sde",
+        "euler",
         "simple",
         0,
         10000,
@@ -279,7 +279,7 @@
       "widgets_values": [
         "2:3 (Portrait Photo)",
         1,
-        8
+        16
       ],
       "widgets_values_named": {
         "aspect_ratio": "2:3 (Portrait Photo)",
@@ -289,13 +289,13 @@
     },
     {
       "id": 14,
-      "type": "EmptyLatentImage",
+      "type": "EmptyFlux2LatentImage",
       "pos": [
         555.1431757274343,
         20.88937775657244
       ],
       "size": [
-        270,
+        300,
         106
       ],
       "flags": {
@@ -305,6 +305,7 @@
       "mode": 0,
       "inputs": [
         {
+          "localized_name": "width",
           "name": "width",
           "type": "INT",
           "widget": {
@@ -313,6 +314,7 @@
           "link": 16
         },
         {
+          "localized_name": "height",
           "name": "height",
           "type": "INT",
           "widget": {
@@ -323,6 +325,7 @@
       ],
       "outputs": [
         {
+          "localized_name": "LATENT",
           "name": "LATENT",
           "type": "LATENT",
           "links": [
@@ -331,7 +334,7 @@
         }
       ],
       "properties": {
-        "Node name for S&R": "EmptyLatentImage"
+        "Node name for S&R": "EmptyFlux2LatentImage"
       },
       "widgets_values": [
         1024,
@@ -359,7 +362,7 @@
         "collapsed": true
       },
       "order": 8,
-      "mode": 0,
+      "mode": 4,
       "showAdvanced": true,
       "inputs": [
         {
@@ -491,7 +494,7 @@
         "collapsed": true
       },
       "order": 9,
-      "mode": 0,
+      "mode": 4,
       "inputs": [
         {
           "name": "conditioning",
@@ -566,7 +569,7 @@
       "outputs": [],
       "properties": {},
       "widgets_values": [
-        "## Custom Nodes\n\n- [GGUF Loader](https://registry.comfy.org/publishers/molbal/nodes/comfyui-gguf-reboot)\n- [Information page](https://molbal.github.io/gguf/models/moss-image)\n\n## Model Links\n\n- [Hugging Face:molbal/MOSS-Image-GGUF](https://huggingface.co/molbal/MOSS-Image-GGUF)\n\n**text_encoder**\n\n- [qwen3.5_9b_int8_convrot.safetensors](https://huggingface.co/Comfy-Org/MOSS-Image/resolve/main/text_encoders/qwen3.5_9b_int8_convrot.safetensors)\n\n**diffusion_models**\n\n- [moss_image_sft_turbo_*.gguf](https://huggingface.co/molbal/MOSS-Image-GGUF)\n\n**vae**\n\n- [flux2-vae.safetensors](https://huggingface.co/black-forest-labs/flux-3-image-klein-comfy/resolve/main/vae/flux2-vae.safetensors)\n\n\n## Model Storage Location\n\n```\n📂 ComfyUI/\n├── 📂 models/\n│   ├── 📂 text_encoders/\n│   │   └── qwen3.5_9b_int8_convrot.safetensors\n│   ├── 📂 diffusion_models/\n│   │   └── moss_image_sft_turbo_*.gguf\n│   └── 📂 vae/\n│       └── flux2-vae.safetensors\n```\n"
+        "## Custom Nodes\n\n- [GGUF Loader](https://registry.comfy.org/publishers/molbal/nodes/comfyui-gguf-reboot)\n- [Information page](https://molbal.github.io/gguf/models/moss-image)\n\n## Model Links\n\n- [Hugging Face:molbal/MOSS-Image-GGUF](https://huggingface.co/molbal/MOSS-Image-GGUF)\n\n**text_encoder**\n\n- [qwen3.5_9b_int8_convrot.safetensors](https://huggingface.co/Comfy-Org/MOSS-Image/resolve/main/text_encoders/qwen3.5_9b_int8_convrot.safetensors)\n\n**diffusion_models**\n\n- [moss_image_sft_turbo_Q8_CR.gguf](https://huggingface.co/molbal/MOSS-Image-GGUF/blob/main/moss_image_sft_turbo_Q8_CR.gguf)\n\n**vae**\n\n- [flux2-vae.safetensors](https://huggingface.co/Comfy-Org/MOSS-Image/resolve/main/vae/flux2-vae.safetensors)\n\n\n## Model Storage Location\n\n```\nComfyUI/\n  models/\n    text_encoders/\n      qwen3.5_9b_int8_convrot.safetensors\n    diffusion_models/\n      moss_image_sft_turbo_Q8_CR.gguf\n    vae/\n      flux2-vae.safetensors\n```\n\n## Sampling settings\n\nThe Turbo build runs 8 steps at CFG 1 with the euler sampler and the simple scheduler. At CFG 1 there is no negative branch, so the negative conditioning, skip layer guidance and score rescaling nodes are bypassed.\n"
       ],
       "widgets_values_named": {
         "text": "## Custom Nodes\n\n- [GGUF Loader](https://registry.comfy.org/publishers/molbal/nodes/comfyui-gguf-reboot)\n- [Information page](https://molbal.github.io/gguf/models/moss-image)\n\n## Model Links\n\n- [Hugging Face:molbal/MOSS-Image-GGUF](https://huggingface.co/molbal/MOSS-Image-GGUF)\n\n**text_encoder**\n\n- [qwen3.5_9b_int8_convrot.safetensors](https://huggingface.co/Comfy-Org/MOSS-Image/resolve/main/text_encoders/qwen3.5_9b_int8_convrot.safetensors)\n\n**diffusion_models**\n\n- [moss_image_sft_turbo_*.gguf](https://huggingface.co/molbal/MOSS-Image-GGUF)\n\n**vae**\n\n- [flux2-vae.safetensors](https://huggingface.co/black-forest-labs/flux-3-image-klein-comfy/resolve/main/vae/flux2-vae.safetensors)\n\n\n## Model Storage Location\n\n```\n📂 ComfyUI/\n├── 📂 models/\n│   ├── 📂 text_encoders/\n│   │   └── qwen3.5_9b_int8_convrot.safetensors\n│   ├── 📂 diffusion_models/\n│   │   └── moss_image_sft_turbo_*.gguf\n│   └── 📂 vae/\n│       └── flux2-vae.safetensors\n```\n"

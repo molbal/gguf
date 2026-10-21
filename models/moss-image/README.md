@@ -51,6 +51,15 @@ MOSS-Image accepts natural-language prompts, tag sequences, and JSON layouts tha
 
 The upstream SFT reference settings use 50 steps and CFG 3. The Turbo workflow included here uses 8 steps and CFG 1.
 
+| Setting | SFT workflow | Turbo workflow |
+| --- | --- | --- |
+| Steps | 50 | 8 |
+| CFG | 3 | 1 |
+| Sampler | euler | euler |
+| Scheduler | sgm_uniform | simple |
+| Shift | 5 (model default) | 5 (model default) |
+| Skip layer guidance | Layer 22, full range | Bypassed, no negative branch at CFG 1 |
+
 ## ComfyUI setup
 
 Install [comfyui-gguf-reboot](https://registry.comfy.org/publishers/molbal/nodes/comfyui-gguf-reboot). Use its `UnetLoaderGGUFDynamicVRAM` node to load a GGUF from `models/diffusion_models/`. These loader nodes give the best performance.
@@ -61,6 +70,8 @@ The workflow also needs the following upstream files:
 | --- | --- | --- |
 | Text encoder | [qwen3.5_9b_int8_convrot.safetensors](https://huggingface.co/Comfy-Org/MOSS-Image/resolve/main/text_encoders/qwen3.5_9b_int8_convrot.safetensors) | `models/text_encoders/` |
 | VAE | [flux2-vae.safetensors](https://huggingface.co/Comfy-Org/MOSS-Image/resolve/main/vae/flux2-vae.safetensors) | `models/vae/` |
+
+[Download the 50-step SFT ComfyUI workflow](moss_image_sft_workflow.json).
 
 [Download the 8-step Turbo ComfyUI workflow](moss_image_turbo_workflow.json).
 

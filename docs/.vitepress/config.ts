@@ -85,7 +85,8 @@ export default defineConfig({
           { text: 'Ideogram 4', link: '/models/ideogram-4' },
           { text: 'Qwen Image 2.1', link: '/models/qwen-image-2-1' },
           { text: 'Qwen Image 2.1 Turbo', link: '/models/qwen-image-2-1-turbo' },
-          { text: 'MOSS-Image', link: '/models/moss-image' }
+          { text: 'MOSS-Image', link: '/models/moss-image' },
+          { text: 'Kromoss', link: '/models/kromoss' }
         ]
       },
       {
