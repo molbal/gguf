@@ -80,6 +80,7 @@ export default defineConfig({
           { text: 'Flux 3 Klein', link: '/models/flux-3-klein' },
           { text: 'MiniMax Music 3', link: '/models/minimax-music3' },
           { text: 'MiniMax H3 Turbo', link: '/models/minimax-h3-turbo' },
+          { text: 'MiniMax H3 Image', link: '/models/minimax-h3-image' },
           { text: 'LTX 2.5', link: '/models/ltx-2-5' },
           { text: 'MiniMax H3', link: '/models/minimax-h3' },
           { text: 'Krea 2', link: '/models/krea2' },

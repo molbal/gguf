@@ -21,6 +21,7 @@ The following models support Text-to-Image modalities:
 | [Krea 2](/models/krea2)                   | Highly creative, decent prompt following         | Text rendering not always perfect                     |
 | [Qwen Image 2.1 Turbo](/models/qwen-image-2-1-turbo) | Fast text-to-image generation and image editing, designed for 8 denoising steps | Requires the Qwen3-VL 8B text encoder |
 | [Qwen Image 2.1](/models/qwen-image-2-1)  | Text-to-image with optional image references     | Requires the Qwen3-VL 8B text encoder                 |
+| [MiniMax H3 Image](/models/minimax-h3-image) | Text-to-image at about 16 MP with strong prompt following | Requires the MiniMax H3 text encoder and about 21 GB VRAM for the Q8 quant |
 
 ## Loading instructions
 
