@@ -14,6 +14,7 @@ Quantized GGUF builds of diffusion and audio models, maintained by molbal.
 | [Flux 3 Klein](/models/flux-3-klein) | Text-to-image and multi-reference editing | [HF](https://huggingface.co/molbal/Flux-3-Klein-GGUF)     |
 | [MiniMax Music 3](/models/minimax-music3) | Audio and music up to 5 minutes | [HF](https://huggingface.co/molbal/Minimax-Music3-GGUF)   |
 | [MiniMax H3 Turbo](/models/minimax-h3-turbo) | Video and multimodal | [HF](https://huggingface.co/molbal/MiniMax-H3-Turbo-GGUF) |
+| [MiniMax H3 Image](/models/minimax-h3-image) | Text-to-image and image editing at 16 MP | [HF](https://huggingface.co/molbal/miniMax-H3-Image-GGUF) |
 | [LTX 2.5](/models/ltx-2-5) | Open-weights video generation | [HF](https://huggingface.co/molbal/LTX-2.5-GGUF)          |
 | [MiniMax H3](/models/minimax-h3) | Omni-modal generation | [HF](https://huggingface.co/molbal/MiniMax-H3-GGUF)       |
 | [Krea 2](/models/krea2) | Image synthesis and design | [HF](https://huggingface.co/molbal/krea2-gguf)            |

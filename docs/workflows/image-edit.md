@@ -31,6 +31,7 @@ Chain a mask into the conditioning stage. The GGUF diffusion model regenerates o
 | Krea 2 | [molbal/krea2-gguf](https://huggingface.co/molbal/krea2-gguf)                   | Q8_0, Q4_K_M |
 | Qwen Image 2.1 Turbo | [molbal/Qwen-Image-2.1-Turbo-GGUF](https://huggingface.co/molbal/Qwen-Image-2.1-Turbo-GGUF) | Q8_CR, Q8_0, Q6_K, Q4_K_M |
 | Qwen Image 2.1 | [molbal/Qwen-Image-2.1-GGUF](https://huggingface.co/molbal/Qwen-Image-2.1-GGUF) | Q8_CR, Q8_0 |
+| [MiniMax H3 Image](/models/minimax-h3-image) | [molbal/miniMax-H3-Image-GGUF](https://huggingface.co/molbal/miniMax-H3-Image-GGUF) | Q8_0, Q4_K_M |
 
 ## Loading instructions
 
